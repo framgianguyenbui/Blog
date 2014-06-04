@@ -24,6 +24,8 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+gem 'database_cleaner'
+
 gem 'protected_attributes'
 gem 'devise', '3.0.0.rc'
 gem 'jquery-rails'
