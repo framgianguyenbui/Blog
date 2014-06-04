@@ -6,26 +6,19 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @entry = current_user.entries.build(params[:entry])
-    if @entry.save
+    @comment = current_user.comments.build(params[:comment])
+    if @comment.save
+      @comments = Comment
       flash[:success] = "Entry posted!"
-      redirect_to root_path
+      redirect_back_or root_path
     else
-      @feed_items = []
-      render root_path
+      @comments = []
+      redirect_back_or root_path
     end 
   end
 
   def destroy
-
-  end
-
-  def show
-
-  end
-
-  def new
-
+    @entry.destroy
   end
 
   private

@@ -5,6 +5,7 @@ class EntriesController < ApplicationController
 
 
 	def index
+		@entries = Entry.paginate(:page => params[:page], :per_page => 15)
 	end
 
 	def create
@@ -13,15 +14,21 @@ class EntriesController < ApplicationController
 			flash[:success] = "Entry posted!"
 			redirect_to root_path
 		else
-			@comment_items = []
+			@feed_items = []
 			render root_path
 		end	
 	end
 
 	def show
-		@user = current_user
-		@entry = current_user.entries.find_by_id(params[:id])
-		@comments = @entry.comments.paginate(:page => params[:page], :per_page => 7)	
+		@entry = Entry.find_by_id(params[:id])
+		@user = @entry.user
+		if signed_in?
+			@comment = current_user.comments.build
+		else
+			@comment = nil
+		end
+		@comments = @entry.comments	
+		store_location	
 	end
 
 	def destroy

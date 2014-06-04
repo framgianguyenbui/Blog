@@ -6,7 +6,7 @@
 <h1>
 <%= gravatar_for @user %>
 <%= @user.name %>
-</h1>
+</h1> 
 </section>
 <section>
 <%= render 'shared/stats' %>
@@ -26,6 +26,17 @@ Posted: <%= @entry.created_at %> .
 <% end %>
 </li>
 </blockquote>
+<% @comments.each do |c| %>
+<li>
+<span class="nowrap"><h4><%= c.user.name %></h4> <em>said:</em></span>
+	<span class="comment">
+		<%= c.content %>
+	</span>
+</li>
+<% end %>
 
+<% if signed_in? %>
+	<%= render 'shared/comment_form' %>	
+<% end %>
 
 </div>
