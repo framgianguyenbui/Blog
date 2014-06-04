@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
+ruby '2.0.0'
 
-gem 'rails', '3.2.3'
+gem 'rails', '4.0.5'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -14,8 +15,8 @@ end
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
+  gem 'sass-rails',   '4.0.2'
+  gem 'coffee-rails', '4.0.0'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   gem 'therubyracer', :platform => :ruby
@@ -23,12 +24,14 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+gem 'protected_attributes'
+gem 'devise', '3.0.0.rc'
 gem 'jquery-rails'
 #gem 'bootstrap-sass', '2.0.0'
-gem 'bootstrap-sass'
+gem 'bootstrap-sass', '3.0.0'
 gem 'execjs'
 #gem 'bcrypt-ruby', '~> 3.0.0'
-gem 'bcrypt-ruby'
+gem 'bcrypt'
 gem 'faker', '1.0.1'
 gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate', '0.0.6'
@@ -47,4 +50,3 @@ gem 'rails_12factor'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
-ruby '1.9.3'
