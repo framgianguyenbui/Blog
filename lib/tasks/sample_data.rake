@@ -31,8 +31,8 @@ end
 def make_microposts
 	users = User.all(limit: 9)
 	20.times do
-	title  = Faker::Lorem.words(rand(2..10))
-   	content  = Faker::Lorem.paragraphs(rand(2..8))
+	title  = Faker::Lorem.words(rand(2..10)).join(' ')
+   	content  = Faker::Lorem.sentence(rand(2..8))
 	users.each { |user| user.entries.create!(title: title, content: content) }
 	end
 end
